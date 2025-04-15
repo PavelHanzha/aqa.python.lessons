@@ -106,4 +106,4 @@ print("Перша книжка коштує", book_1, "грн., друга", boo
 print("Скільки будуть коштувати усі книги, якщо купити по одному примірнику?")
 print(book_1 + book_2 + book_3)
 
-print("hello")
+print("hello my friend")
