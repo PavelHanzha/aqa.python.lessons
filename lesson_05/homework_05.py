@@ -84,7 +84,7 @@ for k in car_data:  # find in dict 5 lower price in a cars
 
 
 # min_price = max_price
-# for k in list_of_price:
+# for k in list_of_price: find min price
 #   if k <= min_price:
 #     min_price = k
 # print(min_price)
