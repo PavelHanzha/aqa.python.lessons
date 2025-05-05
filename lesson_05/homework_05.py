@@ -41,13 +41,13 @@ car_data = {
 }
 search_criteria = (2017, 1.6, 36000)
 
-# color_car =[]
-# year_car = []
-# engine_volume = []
-# car_type = []
-list_of_price = []
-max_price = 0
-counter = 0
+# # color_car =[]
+# # year_car = []
+# # engine_volume = []
+# # car_type = []
+# list_of_price = []
+# max_price = 0
+# counter = 0
 
 # for k in car_data:
 #   color_car += [car_data[k][0]]
@@ -65,25 +65,67 @@ counter = 0
 #   car_type += [car_data[k][3]]
 # # print(car_type)
 
-for k in car_data:
-    list_of_price += [car_data[k][4]]  # create list with all price
+# for k in car_data:
+#     list_of_price += [car_data[k][4]]  # create list with all price
+#
+# list_of_price.sort()  # sort list with all price
+# max_price_first_5_cars = list_of_price[0:5]  # create variable with first 5 lower price
+#
+# for k in max_price_first_5_cars:  # find max price in list with first 5 lower price
+#     if max_price <= k:
+#         max_price = k
+#
+# for k in car_data:  # find in dict 5 lower price in a cars
+#     if car_data[k][-1] <= max_price:
+#         print(k, car_data[k][1], car_data[k][2], car_data[k][-1])
+#         counter += 1
+#     if counter == 5:
+#         break
 
-list_of_price.sort()  # sort list with all price
-max_price_first_5_cars = list_of_price[0:5]  # create variable with first 5 lower price
-
-for k in max_price_first_5_cars:  # find max price in list with first 5 lower price
-    if max_price <= k:
-        max_price = k
-
-for k in car_data:  # find in dict 5 lower price in a cars
-    if car_data[k][-1] <= max_price:
-        print(k, car_data[k][1], car_data[k][2], car_data[k][-1])
-        counter += 1
-    if counter == 5:
-        break
 
 # min_price = max_price
-# for k in list_of_price:
+# for k in list_of_price: ----- find min price
 #   if k <= min_price:
 #     min_price = k
 # print(min_price)
+
+# for k in car_data:
+#     if 2017 <= car_data[k][1]:
+#         if 1.6 <= car_data[k][2]:
+#             if 36000 >= car_data[k][-1]:
+
+
+sorted_car_dict_by_criteria = {}
+prices = []
+counter = 0
+for k, v in car_data.items():
+    if 2017 <= car_data[k][1] and 1.6 <= car_data[k][2] and 36000 >= car_data[k][-1]:
+        sorted_car_dict_by_criteria.update({k:v})
+# print(sorted_car_dict_by_criteria)
+sorted_by_price = dict(sorted(sorted_car_dict_by_criteria.items(), key=lambda price: price[1][-1]))
+
+print(sorted_by_price)
+
+for k, v in sorted_by_price.items():
+    print(k,v)
+    counter += 1
+    if counter == 5:
+        break
+# for k in sorted_by_price:
+#     print()
+#     counter += 1
+#     if counter == 5:
+#         break
+
+
+
+# list_sorted_car_dict_by_criteria = list(sorted_car_dict_by_criteria.items())
+# print(list_sorted_car_dict_by_criteria)
+# print(sorted(list_sorted_car_dict_by_criteria))
+
+# for k in car_data:
+#     if 2017 <= car_data[k][1]:
+#         if 1.6 <= car_data[k][2]:
+#             if 36000 >= car_data[k][-1]:
+#                 with_price.append(car_data[k][-1])
+
