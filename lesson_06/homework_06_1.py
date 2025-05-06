@@ -9,6 +9,3 @@ if 10 < length_unique_received_symbols:
     print(True)
 if 10 > length_unique_received_symbols:
     print(False)
-
-
-
