@@ -41,7 +41,7 @@ for k in people_records:
         if k[2] >= 30:
             list_with_age_more_30.append(k)
     counter += 1
-
+# Added cycle
 for k in list_with_age_more_30:
     if len(list_with_age_more_30) == 3:
         print('Everyone is over 30')
