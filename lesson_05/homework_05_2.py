@@ -25,7 +25,7 @@ index_5 = people_records.pop(5)
 people_records.insert(1, index_5)
 index_1 = people_records.pop(1)
 people_records.insert(4, index_1)
-print(people_records)
+# print(people_records)
 
 # 3 task
 counter = 0
@@ -41,4 +41,9 @@ for k in people_records:
         if k[2] >= 30:
             list_with_age_more_30.append(k)
     counter += 1
-print(list_with_age_more_30)
+
+for k in list_with_age_more_30:
+    if len(list_with_age_more_30) == 3:
+        print('Everyone is over 30')
+    else:
+        print('Not everyone is over 30')
