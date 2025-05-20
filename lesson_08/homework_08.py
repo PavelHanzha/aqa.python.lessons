@@ -34,3 +34,4 @@ results_2 = [sum_of_numbers_float(item) for item in list_with_number2]
 
 for result in results_2:
     print(result)
+
