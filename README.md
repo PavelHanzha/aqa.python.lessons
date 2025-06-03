@@ -1,1 +1,1 @@
-# aqa.python.lessons
+# aqa_python_lessons
