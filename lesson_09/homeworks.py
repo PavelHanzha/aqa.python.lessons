@@ -32,3 +32,4 @@ def the_longest_word_in_list(list_with_word):
         return "empty list"
     return max(list_with_word, key=len)
 
+print(sum_of_numbers_int('7,5,4,5,6'))

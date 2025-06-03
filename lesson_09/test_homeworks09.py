@@ -1,8 +1,10 @@
 import pytest
-from homeworks import (
+from lesson_09.homeworks import (
     sum_of_numbers_int,
     sum_of_numbers_float,
     delete_extra_space,
+    count_symbols_in_text,
+    the_longest_word_in_list
 )
 
 
@@ -32,14 +34,46 @@ def test_sum_of_numbers_float(input_equation, expected_result):
 
 
 @pytest.mark.parametrize('input_text, expected_result', [
-    ('   Hello  my fiend    ', 'Hello my fiend'), # extra space before/between/after words
-    ('     Hello my fiend', 'Hello my fiend'), # extra space before words
-    ('Hello my friend       ', 'Hello my fiend'), # extra space after words
-    ('Hello      my    friend', 'Hello my fiend'), # extra space between words
-    ('Hello my fiend', 'Hello my fiend'), # without extra space
+    ('   Hello  my friend    ', 'Hello my friend'), # extra space before/between/after words
+    ('     Hello my friend', 'Hello my friend'), # extra space before words
+    ('Hello my friend       ', 'Hello my friend'), # extra space after words
+    ('Hello      my    friend', 'Hello my friend'), # extra space between words
+    ('Hello my friend', 'Hello my friend'), # without extra space
 ])
 
 def test_delete_extra_space(input_text, expected_result):
     actual = delete_extra_space(input_text)
+
+    assert actual == expected_result
+
+@pytest.mark.parametrize('input_text, expected_result', [
+    ('qwertyuiop', 10), # only simple symbols in lower register
+    ('QWERTYUIOP', 10), # only simple symbols in upper register
+    ('!@#$%^&*()_', 11), # only special symbols
+    ('1234567890987654321', 19), # only numbers
+    ('123$%^qweRTY', 12), # special symbols, upper and lower symbols, numbers
+])
+
+def test_count_symbols_in_text(input_text, expected_result):
+    actual = count_symbols_in_text(input_text)
+
+    assert actual == expected_result
+
+
+
+@pytest.mark.parametrize('input_text, expected_result', [
+    (['Momo', 'and', 'Comon'], 'Comon'), # simple list with words
+    (['Momo and Comon', 'Hello world!'], 'Momo and Comon'), # objects with several words
+    (['', ''], ''), # empty list
+    (['Jojo are the best', ''], 'Jojo are the best'), # list with empty last object
+    (['', 'Jojo are the best'], 'Jojo are the best'), # list with empty 1st object
+    (['123654', 'qwert'], '123654'), # list with numbers
+    (['!@#$%$#@!', 'qwertyhgfd', '1234567876565421'], '1234567876565421'),
+    # list with numbers/special and simple symbols
+    (['One object in list'], 'One object in list') # One object in list
+])
+
+def test_the_longest_word_in_list(input_text, expected_result):
+    actual = the_longest_word_in_list(input_text)
 
     assert actual == expected_result
